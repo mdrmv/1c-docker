@@ -5,12 +5,17 @@ services:
       dockerfile: Dockerfile
     image: 1c-docker-app-1c
     container_name: app-1c
+
+    # чтобы внутри контейнера было нормальное имя (а не hash)
     hostname: app-1c
     domainname: lan
+
     restart: unless-stopped
 
     environment:
       TZ: Asia/Almaty
+      # ВАЖНО: это имя rmngr будет публиковать для клиентов
+      HOST_FQDN: app-1c.lan
 
     ports:
       - "1540:1540"
