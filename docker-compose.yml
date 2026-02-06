@@ -6,7 +6,7 @@ services:
     image: 1c-docker-app-1c
     container_name: app-1c
 
-    # ВАЖНО: hostname сразу FQDN, чтобы gethostname() == app-1c.lan
+    # ВАЖНО: FQDN, чтобы кластер публиковал app-1c.lan, а не shortname/ID
     hostname: app-1c.lan
 
     restart: unless-stopped
@@ -23,3 +23,13 @@ services:
       - ./data/srvinfo:/var/lib/1cv8
       - ./data/logs:/var/log/1C
       - ./data/conf:/opt/1cv8/conf
+
+    # Прод-минимум: чтобы контейнер успел корректно закрыть процессы
+    stop_grace_period: 30s
+
+    # Прод-минимум: ротация docker-логов
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
