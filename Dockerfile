@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     locales tzdata \
     net-tools iproute2 procps \
+    netcat-openbsd \
     libfreetype6 libglib2.0-0 libx11-6 libxext6 libxi6 libxrender1 libxslt1.1 \
     libstdc++6 zlib1g \
     gosu \
