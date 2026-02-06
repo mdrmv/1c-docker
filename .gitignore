@@ -1,0 +1,6 @@
+# 1C distributives / binaries
+build/deb/*.deb
+*.deb
+
+# logs / runtime
+*.log
