@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     image: 1c-docker-app-1c
     container_name: app-1c
-    hostname: app-1c
-    domainname: lan
+    hostname: app-1c.lan
+#    domainname: lan
     restart: unless-stopped
 
     environment:
