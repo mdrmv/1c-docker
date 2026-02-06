@@ -1,0 +1,21 @@
+services:
+  app-1c:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 1c-docker-app-1c
+    container_name: app-1c
+    restart: unless-stopped
+
+    environment:
+      TZ: Asia/Almaty
+
+    ports:
+      - "1540:1540"
+      - "1541:1541"
+      - "1560-1591:1560-1591"
+
+    volumes:
+      - ./data/srvinfo:/var/lib/1cv8
+      - ./data/logs:/var/log/1C
+      - ./data/conf:/opt/1cv8/conf
